@@ -19,9 +19,15 @@ class User extends React.Component {
 
   render() {
     return (
-      <h1>
-        Hej hej {this.state.currentuser}!
-      </h1>
+      <div>
+        <h2>{this.state.currentuser}</h2>
+        <p>User data:</p>
+        <ol>
+          <li>Name: {this.state.currentuser}</li>
+          <li>City: </li>
+          <li>Long Johns temperature:</li>
+        </ol>
+      </div>
     );
   }
 };
