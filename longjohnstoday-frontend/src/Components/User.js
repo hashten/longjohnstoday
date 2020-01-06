@@ -19,7 +19,7 @@ class User extends React.Component {
 
   render() {
     return (
-      <div>
+      <div class="content">
         <h2>{this.state.currentuser}</h2>
         <p>User data:</p>
         <ol>

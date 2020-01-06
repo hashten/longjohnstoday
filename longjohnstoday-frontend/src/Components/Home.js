@@ -1,21 +1,34 @@
 import React, { Component } from "react";
- 
+import agent from "../agent";
+
 class Home extends Component {
+  constructor() {
+    super();
+    this.state = {
+      weather: null
+    };
+  }
+  componentDidMount() {
+    agent.Weather.current()
+      .then(result => {
+        this.setState({
+          weather: JSON.stringify(result)
+        });
+      });
+  }
   render() {
     return (
-      <div>
-        <h2>HELLO</h2>
-        <p>Cras facilisis urna ornare ex volutpat, et
-        convallis erat elementum. Ut aliquam, ipsum vitae
-        gravida suscipit, metus dui bibendum est, eget rhoncus nibh
-        metus nec massa. Maecenas hendrerit laoreet augue
-        nec molestie. Cum sociis natoque penatibus et magnis
-        dis parturient montes, nascetur ridiculus mus.</p>
- 
-        <p>Duis a turpis sed lacus dapibus elementum sed eu lectus.</p>
+      <div class="row">
+        <div class="column"><h1>SHOULD I WEAR {this.props.AppName.toUpperCase()}</h1></div>
+        <div class="column">
+          <div class="content">
+            <h2>Current weather</h2>
+            <p>{this.state.weather}</p>
+          </div>
+        </div>
       </div>
     );
   }
 }
- 
+
 export default Home;
