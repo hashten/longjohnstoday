@@ -16,15 +16,13 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- checkout: self
-  path: longjohnstoday-backend
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
-
+- script: 
+    cd longjohnstoday-backend
 - script: |
-    cd longjohntoday-backend
     npm install
     npm run build
   displayName: 'npm install and build'
