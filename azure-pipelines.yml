@@ -4,12 +4,20 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 trigger:
-- master
+  branches:
+    include:
+    - master
+  paths:
+    include:
+    - longjohnstoday-backend/*
+    - azure-pipelines.yml
 
 pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- checkout: self
+  path: longjohnstoday-backend
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'
